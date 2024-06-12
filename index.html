@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Replacement Algorithms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Giải Thuật Thay Thế Trang</h1>
+        <label for="algorithm">Chọn thuật toán</label>
+        <select id="algorithm" class="select">
+            <option value="fifo">FIFO</option>
+            <option value="lru">LRU</option>
+            <option value="optimal">Optimal</option>
+            <option value="lfu">LFU</option> 
+            <option value="mfu">MFU</option>
+            <option value="nru">NRU</option>
+            <option value="clock">CLOCK</option>
+        </select>
+
+        <label for="pages">Nhập dữ liệu đầu vào</label>
+        <input type="text" id="pages" placeholder="vd: 1,2,3,4,2,3,1,5">
+
+        <label for="frames">Số frames</label>
+        <input type="number" id="frames" min="1" placeholder="vd: 3">
+
+        <label for="frames">#Để tối ưu trải nghiệm trên điện thoại số_trang<= 10,số_frame<=5 </label>
+        
+        <label for="frames"></label>
+        <button onclick="runAlgorithm()" class="run-button">RUN</button>
+
+        <div id="result" lass="result-container"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

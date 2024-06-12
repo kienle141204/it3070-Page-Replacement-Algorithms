@@ -1,0 +1,104 @@
+body {
+    font-family: Monaco, Courier New, monospace;
+    background-color: #1a1a1a; /* Màu nền đen */
+    color: #00FF00; /* Màu chữ xanh lục neon */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #1a1a1a; /* Màu nền đen */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 100px rgba(0, 255, 0, 0.5); /* Box-shadow với màu xanh lục neon */
+}
+
+h1 {
+    font-weight: 500;
+    text-align: center;
+    color: #00FF00; /* Màu chữ xanh lục neon */
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #00FF00; /* Màu chữ xanh lục neon */
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border: 1px solid #00FF00; /* Màu viền input và select */
+    border-radius: 4px;
+    font-size: 16px;
+    color: #00FF00; /* Màu chữ xanh lục neon */
+    background-color: #1a1a1a; /* Màu nền input và select */
+}
+
+.select {
+    width: auto;
+    display: inline-block;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #00FF00; /* Màu viền select */
+    border-radius: 4px;
+    font-size: 16px;
+    color: #00FF00; /* Màu chữ xanh lục neon */
+    background-color: #1a1a1a; /* Màu nền select */
+}
+
+.run-button {
+    display: block;
+    width: 120px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #00FF00; /* Màu nền nút */
+    color: #1a1a1a;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.run-button:hover {
+    background-color: #023509; /* Màu nền nút khi hover */
+}
+
+#result-container {
+    max-width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #00FF00; /* Màu chữ xanh lục neon */
+}
+
+th, td {
+    border: 1px solid #00FF00; /* Màu viền của ô */
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #1a1a1a; /* Màu nền của ô tiêu đề */
+    font-weight: 500;
+}
+
+p {
+    font-weight: 500;
+    color: #00FF00; /* Màu chữ xanh lục neon */
+}
