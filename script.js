@@ -102,8 +102,8 @@ function lru(pages, frames) {
 
 // thuat toan optimal
 function optimal(pages, frames) {
-    let pageFrames = []; // danh sach khung trang hien tai
-    let pageFaults = 0; // so loi trang
+    let pageFrames = []; 
+    let pageFaults = 0; 
     let steps = []; // luu tru cac buoc thuc hien
 
     pages.forEach((page, index) => {
@@ -249,8 +249,8 @@ function mfu(pages, frames) {
 
 // thuat toan NRU (Not Recently Used)
 function nru(pages, frames) {
-    let pageFrames = []; // Danh sách khung trang hiện tại
-    let referenceBits = []; // Danh sách bit tham chiếu
+    let pageFrames = []; 
+    let referenceBits = []; 
     let modifiedBits = []; // Danh sách bit sửa đổi
     let pageFaults = 0; // Số lỗi trang
     let steps = []; // Lưu trữ các bước thực hiện
@@ -336,8 +336,8 @@ function nru(pages, frames) {
 
 // Thuật toán Clock // chưa 
 function clock(pages, frames) {
-    let pageFrames = []; // Danh sách khung trang hiện tại
-    let referenceBits = []; // Danh sách bit tham chiếu
+    let pageFrames = []; 
+    let referenceBits = []; 
     let pointer = 0; // Con trỏ chỉ vào vị trí hiện tại trong khung trang
     let pageFaults = 0; // Số lỗi trang
     let steps = []; // Lưu trữ các bước thực hiện
@@ -378,22 +378,32 @@ function clock(pages, frames) {
 
 // dinh dang ket qua hien thi
 function formatResult(result, frames) {
-    let output = `So loi trang: ${result.pageFaults}<br><br>`;
-    output += '<table border="1"><tr><th>Page</th>';
-
-    for (let i = 0; i < frames; i++) {
-        output += `<th>Frame ${i + 1}</th>`;
-    }
-    output += '<th>Fault</th></tr>';
-
-    result.steps.forEach(step => {
-        output += `<tr><td>${step.page}</td>`;
-        step.frames.forEach(frame => {
-            output += `<td>${frame !== undefined ? frame : ''}</td>`;
+    let resultHTML = '';
+    if (result.steps.length <= 40 && frames <=5) { 
+        resultHTML += `<p>Page Faults: ${result.pageFaults}</p>`;
+        resultHTML += `<table><tr><th>Step</th>`;
+        for (let i = 0; i < result.steps.length; i++) {
+            resultHTML += `<th>${i + 1}</th>`;
+        }
+        resultHTML += `</tr><tr><td>Page</td>`;
+        result.steps.forEach(step => {
+            resultHTML += `<td>${step.page}</td>`;
         });
-        output += `<td>${step.fault ? 'Yes' : 'No'}</td></tr>`;
-    });
-
-    output += '</table>';
-    return output;
+        // hiển thị các khung trang
+        for (let i = 0; i < frames; i++) {
+            resultHTML += `</tr><tr><td></td>`;//frame 
+            result.steps.forEach(step => {
+                resultHTML += `<td>${step.frames[i] !== undefined ? step.frames[i] : ''}</td>`;
+            });
+        }
+        resultHTML += `</tr><tr><td>MissOrHit</td>`;
+        // hiển thị lỗi trang
+        result.steps.forEach(step => {
+            resultHTML += `<td>${step.fault ? 'M' : 'H'}</td>`;
+        });
+        resultHTML += `</tr></table>`;
+    } else {
+        resultHTML += `<p>Page Faults: ${result.pageFaults}</p>`;
+    }
+    return resultHTML;
 }
